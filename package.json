@@ -1,0 +1,41 @@
+{
+  "name": "slashai",
+  "version": "0.7.9",
+  "description": "rest api client for slash.ai machine learning.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/**/*.js",
+    "test-env": "SLASH_MAIL=x SLASH_PSW=x npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slashai/node-slashai.git"
+  },
+  "keywords": [
+    "slash",
+    "ai",
+    "artifical intelligence",
+    "machine learning",
+    "rest",
+    "api",
+    "easy",
+    "neuronal",
+    "network",
+    "nlp",
+    "classifier",
+    "commands"
+  ],
+  "author": "Christian Fröhlingsdorf <chris@slash.ai>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slashai/node-slashai"
+  },
+  "homepage": "https://slash.ai",
+  "dependencies": {
+    "request": "~2.79.0"
+  },
+  "devDependencies": {
+    "mocha": "~3.1.2",
+    "expect.js": "~0.3.1"
+  }
+}
