@@ -3,6 +3,7 @@
 - rest client for api.slash.ai
 - 100% promises wrapping request.js
 - checkout https://api.slash.ai/apidoc for documentation
+- run the tests via `SLASH_MAIL=mail@example.com SLASH_PSW=1234 npm test`
 
 ```javascript
 //### general API-Client setup

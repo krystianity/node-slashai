@@ -12,7 +12,7 @@ class Classifier {
 
     info(id, customer){
 
-        return this.client.request("GET", `/api/v2/classifier/${id}/${customer}`).then(({status, body}) => {
+        return this.client.request("GET", `/api/v2/classifier/${id}`).then(({status, body}) => {
 
             if(status === 200){
                 return body;

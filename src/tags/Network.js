@@ -20,7 +20,7 @@ class Network {
 
     info(id, customer){
 
-        return this.client.request("GET", `/api/v2/nn/${id}/${customer}`).then(({status, body}) => {
+        return this.client.request("GET", `/api/v2/nn/${id}`).then(({status, body}) => {
 
             if(status === 200){
                 return body;
@@ -88,7 +88,7 @@ class Network {
     train(id, data, customer){
 
         const body = {
-            classifierId: id,
+            netId: id,
             data: data,
             customer: customer
         };
@@ -106,7 +106,7 @@ class Network {
     process(id, input, customer){
 
         const body = {
-            classifierId: id,
+            netId: id,
             customer: customer,
             input: input
         };
@@ -124,7 +124,7 @@ class Network {
     remove(id, customer){
 
         const body = {
-            classifierId: id,
+            netId: id,
             customer: customer
         };
 

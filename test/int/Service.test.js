@@ -121,11 +121,11 @@ describe("Service INT", function () {
             expect(networkId).not.to.be.equal(null);
 
             const trainingSet = [
-                { intput: [0.2, 0.25, 0.2], output: [0.5, 0.5]},
-                { intput: [0.3, 0.3, 0.35], output: [0.8, 0.7]},
-                { intput: [0.1, 0.05, 0.12], output: [0.3, 0.3]},
-                { intput: [0.15, 0.18, 0.14], output: [0.1, 0.2]},
-                { intput: [0.9, 0.7, 0.6], output: [0.9, 0.9]}
+                { input: [0.2, 0.25, 0.2], output: [0.5, 0.5]},
+                { input: [0.3, 0.3, 0.35], output: [0.8, 0.7]},
+                { input: [0.1, 0.05, 0.12], output: [0.3, 0.3]},
+                { input: [0.15, 0.18, 0.14], output: [0.1, 0.2]},
+                { input: [0.9, 0.7, 0.6], output: [0.9, 0.9]}
             ];
 
             slash.network.train(networkId, trainingSet).then(id => {
