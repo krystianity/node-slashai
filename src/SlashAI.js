@@ -22,6 +22,14 @@ class SlashAI {
         this.classifier = new Classifier(this.client, options);
     }
 
+    status(id){
+        return this.client.status(id);
+    }
+
+    await(id){
+        return this.client.await(id);
+    }
+
     alive(){
         return this.client.request("GET", "/api/v2/alive").then(response => {
             return response.status === 200;
@@ -34,12 +42,18 @@ class SlashAI {
         });
     }
 
-    status(id){
-        return this.client.status(id);
+    access(){
+        return this.client.request("GET", "/api/v2/access").then(response => {
+            if(response.status === 200){
+                return response.body;
+            } else {
+                throw new Error(response.body.error);
+            }
+        });
     }
 
-    await(id){
-        return this.client.await(id);
+    rawRequest(method, endpoint, body){
+        return this.client.request(method, endpoint, body);
     }
 }
 

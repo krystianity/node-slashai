@@ -117,6 +117,7 @@ describe("Service INT", function () {
        });
 
         it("should be able to train a network", function(done){
+            this.timeout(4000);
 
             expect(networkId).not.to.be.equal(null);
 
@@ -208,6 +209,7 @@ describe("Service INT", function () {
         });
 
         it("should be able to run stacked training data", function(done){
+            this.timeout(4000);
 
             expect(networkObject).not.to.be.equal(null);
 
@@ -248,4 +250,12 @@ describe("Service INT", function () {
         });
     });
 
+    it("should be able to get access information", function(done){
+
+        slash.access().then(access => {
+            expect(access).not.to.be.equal(null);
+            console.log(access);
+            done();
+        });
+    });
 });
