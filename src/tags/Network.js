@@ -103,6 +103,41 @@ class Network {
         });
     }
 
+    stack(id, data, customer){
+
+        const body = {
+            netId: id,
+            data: data,
+            customer: customer
+        };
+
+        return this.client.request("PUT", "/api/v2/nn/stack", body).then(({status, body}) => {
+
+            if(status === 200){
+                return body.id;
+            }
+
+            throw new Error(body.error);
+        });
+    }
+
+    runStack(id, customer){
+
+        const body = {
+            netId: id,
+            customer: customer
+        };
+
+        return this.client.request("PUT", "/api/v2/nn/stack/run", body).then(({status, body}) => {
+
+            if(status === 202){
+                return body.id;
+            }
+
+            throw new Error(body.error);
+        });
+    }
+
     process(id, input, customer){
 
         const body = {

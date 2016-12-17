@@ -150,7 +150,7 @@ describe("Service INT", function () {
             });
         });
 
-        it("should be able to process a network request", function(done){
+        it("should be able to process a network request 1", function(done){
 
             expect(networkObject).not.to.be.equal(null);
 
@@ -158,6 +158,77 @@ describe("Service INT", function () {
 
             networkObject.process(input).then(result => {
                console.log(result);
+                done();
+            });
+        });
+
+        it("should be able to stack training data 1", function(done){
+
+            expect(networkObject).not.to.be.equal(null);
+
+            const trainingSet = [
+                { input: [0.1, 0.1, 0.1], output: [0.2, 0.2]},
+                { input: [0.3, 0.3, 0.3], output: [0.6, 0.6]},
+            ];
+
+            networkObject.stack(trainingSet).then(result => {
+               console.log(result);
+                done();
+            });
+        });
+
+        it("should be able to stack training data 2", function(done){
+
+            expect(networkObject).not.to.be.equal(null);
+
+            const trainingSet = [
+                { input: [0.0, 0.0, 0.0], output: [0.0, 0.0]},
+                { input: [0.45, 0.45, 0.45], output: [0.9, 0.9]},
+            ];
+
+            networkObject.stack(trainingSet).then(result => {
+                console.log(result);
+                done();
+            });
+        });
+
+        it("should be able to stack training data 3", function(done){
+
+            expect(networkObject).not.to.be.equal(null);
+
+            const trainingSet = [
+                { input: [0.5, 0.5, 0.5], output: [1.0, 1.0]},
+                { input: [0.35, 0.35, 0.35], output: [0.7, 0.7]},
+            ];
+
+            networkObject.stack(trainingSet).then(result => {
+                console.log(result);
+                done();
+            });
+        });
+
+        it("should be able to run stacked training data", function(done){
+
+            expect(networkObject).not.to.be.equal(null);
+
+            networkObject.runStack().then(id => {
+                return slash.await(id);
+            }).then(result => {
+                console.log(result);
+                expect(result.error).to.be.equal(null);
+                expect(result.status).to.be.equal("done");
+                done();
+            });
+        });
+
+        it("should be able to process a network request 2", function(done){
+
+            expect(networkObject).not.to.be.equal(null);
+
+            const input = [0.25, 0.22, 0.34];
+
+            networkObject.process(input).then(result => {
+                console.log(result);
                 done();
             });
         });

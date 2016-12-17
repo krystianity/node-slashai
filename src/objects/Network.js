@@ -14,6 +14,14 @@ class Network {
         return this._network.train(this.id, data, this.customer);
     }
 
+    stack(data){
+        return this._network.stack(this.id, data, this.customer);
+    }
+
+    runStack(){
+        return this._network.runStack(this.id, this.customer);
+    }
+
     process(input){
         return this._network.process(this.id, input, this.customer);
     }
