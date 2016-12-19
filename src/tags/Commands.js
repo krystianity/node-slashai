@@ -10,6 +10,18 @@ class Commands {
         return new ClassifierObject(this, id, customer);
     }
 
+    info(id, customer){
+
+        return this.client.request("GET", `/api/v2/classifier/${id}`).then(({status, body}) => {
+
+            if(status === 200){
+                return body;
+            }
+
+            throw new Error(body.error);
+        });
+    }
+
     create(data, filter, language, customer){
 
         const body = {

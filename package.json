@@ -1,6 +1,6 @@
 {
   "name": "slashai",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "rest api client for slash.ai machine learning.",
   "main": "index.js",
   "scripts": {
