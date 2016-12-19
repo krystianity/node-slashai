@@ -12,7 +12,7 @@ class Classifier {
 
     info(id, customer){
 
-        return this.client.request("GET", `/api/v2/classifier/${id}`).then(({status, body}) => {
+        return this.client.request("GET", `/api/v2/nlp/classifier/${id}`).then(({status, body}) => {
 
             if(status === 200){
                 return body;
@@ -28,7 +28,7 @@ class Classifier {
             customer
         };
 
-        return this.client.request("POST", "/api/v2/classifier", body).then(({status, body}) => {
+        return this.client.request("POST", "/api/v2/nlp/classifier", body).then(({status, body}) => {
 
             if(status === 202){
                 return body.id;
@@ -46,7 +46,7 @@ class Classifier {
             customer: customer
         };
 
-        return this.client.request("PUT", "/api/v2/classifier", body).then(({status, body}) => {
+        return this.client.request("PUT", "/api/v2/nlp/classifier", body).then(({status, body}) => {
 
             if(status === 202){
                 return body.id;
@@ -64,7 +64,7 @@ class Classifier {
             input: input
         };
 
-        return this.client.request("PATCH", "/api/v2/classifier", body).then(({status, body}) => {
+        return this.client.request("PATCH", "/api/v2/nlp/classifier", body).then(({status, body}) => {
 
             if(status === 200){
                 return body;
@@ -81,7 +81,7 @@ class Classifier {
             customer: customer
         };
 
-        return this.client.request("DELETE", "/api/v2/classifier", body).then(({status, body}) => {
+        return this.client.request("DELETE", "/api/v2/nlp/classifier", body).then(({status, body}) => {
 
             if(status === 202){
                 return body.id;
