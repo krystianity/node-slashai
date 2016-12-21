@@ -41,6 +41,24 @@ class Commands {
         });
     }
 
+    train(id, data, customer){
+
+        const body = {
+            classifierId: id,
+            data: data,
+            customer: customer
+        };
+
+        return this.client.request("PUT", "/api/v2/nlp/classifier", body).then(({status, body}) => {
+
+            if(status === 202){
+                return body.id;
+            }
+
+            throw new Error(body.error);
+        });
+    }
+
     process(id, input, customer){
 
         const body = {
